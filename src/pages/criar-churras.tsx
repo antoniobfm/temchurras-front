@@ -13,18 +13,18 @@ import CreateChurrasForm from '@/modules/criarChurras/Form';
 const CriarChurras: React.FC = () => {
   const router = useRouter();
 
-  const isMounted = useRef(0);
+  const isMounted = useRef(false);
 
   const organizing = useSelector((state: RootState) => state.user.organizing);
 
   useEffect(() => {
-    if (isMounted.current > 1 && organizing.length > 0) {
+    if (isMounted.current && organizing.length > 0) {
       const mostRecentChurras = organizing[organizing.length - 1];
-      router.push(`c/${mostRecentChurras.id}`);
+      router.push(`/c/${mostRecentChurras.id}`);
     } else {
-      isMounted.current += 1;
+      isMounted.current = true;
     }
-  }, [organizing]);
+  }, [organizing.length]);
 
   return (
     <>
