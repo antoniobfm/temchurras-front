@@ -119,7 +119,7 @@ export default class MyDocument extends Document {
           />
 
           <meta name="twitter:card" content="summary" />
-          <meta name="twitter:url" content="https://temchurras.app" />
+          <meta name="twitter:url" content="https://temchurras.com" />
           <meta name="twitter:title" content="TemChurras" />
           <meta
             name="twitter:description"
@@ -127,7 +127,7 @@ export default class MyDocument extends Document {
           />
           <meta
             name="twitter:image"
-            content="https://temchurras.app/icons/android-chrome-192x192.png"
+            content="https://temchurras.com/icons/android-chrome-192x192.png"
           />
           <meta name="twitter:creator" content="@DavidWShadow" />
           <meta property="og:type" content="website" />
@@ -137,10 +137,10 @@ export default class MyDocument extends Document {
             content="A plataforma perfeita pro seu churras"
           />
           <meta property="og:site_name" content="TemChurras" />
-          <meta property="og:url" content="https://temchurras.app" />
+          <meta property="og:url" content="https://temchurras.com" />
           <meta
             property="og:image"
-            content="https://temchurras.app/icons/apple-touch-icon.png"
+            content="https://temchurras.com/icons/apple-touch-icon.png"
           />
         </Head>
         <body>

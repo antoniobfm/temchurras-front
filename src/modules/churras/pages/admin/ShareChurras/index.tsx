@@ -42,7 +42,7 @@ const ShareChurras: React.FC = () => {
         <input
           id="churras-link"
           type="text"
-          value={`https://temchurras.app/c/${churras_slug}`}
+          value={`https://temchurras.com/c/${churras_slug}`}
           disabled
           style={{ marginBottom: 24 }}
         />
