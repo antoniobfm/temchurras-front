@@ -12,21 +12,21 @@ import AppProvider from '@/hooks';
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <Head>
-          <meta
-            name="viewport"
-            content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover"
-          />
-          <link rel="manifest" href="/manifest.json" />
-        </Head>
-        <GlobalStyle />
-        <ToastProvider>
-          <AppProvider>
+      <AppProvider>
+        <ThemeProvider theme={theme}>
+          <Head>
+            <meta
+              name="viewport"
+              content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover"
+            />
+            <link rel="manifest" href="/manifest.json" />
+          </Head>
+          <GlobalStyle />
+          <ToastProvider>
             <Component {...pageProps} />
-          </AppProvider>
-        </ToastProvider>
-      </ThemeProvider>
+          </ToastProvider>
+        </ThemeProvider>
+      </AppProvider>
     </Provider>
   );
 }
