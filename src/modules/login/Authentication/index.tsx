@@ -81,9 +81,13 @@ const Authentication: React.FC = () => {
   const handleFinishOnboarding = useCallback(
     (data: IFormData) => {
       dispatch(updateName(data.name));
-      router.push('/');
+      if (redirect) {
+        router.push(`/c/${redirect}`);
+      } else {
+        router.push('/');
+      }
     },
-    [dispatch, router],
+    [dispatch, router, redirect],
   );
 
   if (step === 'phone_number')
