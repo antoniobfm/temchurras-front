@@ -1,0 +1,71 @@
+{
+  "name": "TemChurras",
+  "short_name": "TemChurras",
+  "description": "A ferramenta ideal pra organizar o churras",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#FFD836",
+  "background_color": "#FFD836",
+  "start_url": "/",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/icons/favicon_192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "puporse": "any"
+    },
+    {
+      "src": "/icons/favicon_512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "puporse": "any"
+    },
+    {
+      "src": "/icons/favicon_48x48.png",
+      "sizes": "48x48",
+      "type": "image/png",
+      "puporse": "maskable any"
+    },
+    {
+      "src": "/icons/favicon_72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "puporse": "maskable any"
+    },
+    {
+      "src": "/icons/favicon_96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "puporse": "maskable any"
+    },
+    {
+      "src": "/icons/favicon_128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "puporse": "maskable any"
+    },
+    {
+      "src": "/icons/favicon_192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "puporse": "maskable any"
+    },
+    {
+      "src": "/icons/favicon_384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "puporse": "maskable any"
+    },
+    {
+      "src": "/icons/favicon_512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "puporse": "maskable any"
+    }
+  ],
+  "dir": "ltr",
+  "categories": [],
+  "screenshots": [],
+  "shortcuts": []
+}
