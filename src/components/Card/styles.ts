@@ -168,7 +168,7 @@ export const Card = styled(motion.div)`
       line-height: 17px;
       /* identical to box height */
 
-      color: rgba(0, 0, 0, 0.3);
+      color: rgba(0, 0, 0, 0.75);
     }
   }
 `;
