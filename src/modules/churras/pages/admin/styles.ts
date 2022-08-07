@@ -14,9 +14,9 @@ export const Container = styled.div`
     background: white;
 
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
 
-    padding: 0px 24px;
+    padding: 0px 24px 56px;
 
     margin-top: 16px;
 
