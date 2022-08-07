@@ -110,6 +110,15 @@ export const Container = styled.div`
             color: ${props => props.theme.colors.text_medium_emphasis};
           }
 
+          h2 {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 1; /* number of lines to show */
+            line-clamp: 1;
+            -webkit-box-orient: vertical;
+          }
+
           :hover {
             cursor: pointer;
           }
