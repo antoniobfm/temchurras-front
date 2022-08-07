@@ -12,11 +12,10 @@ Welcome to TemChurras! 🍻
 
 To run this project, you will need to add the following environment variables to your .env file
 
-#### Back-end local port
-`NEXT_PUBLIC_BACKEND_DEV_PORT`
-
-#### Production back-end url
-`NEXT_PUBLIC_PRODUCTION_BACKEND_URL`
+| Name                          | Description                         | Default Value                                  |
+| ----------------------------- | ------------------------------------| -----------------------------------------------|
+|NEXT_PUBLIC_BACKEND_DEV_PORT           | Back-end local port            | 3333      |
+|NEXT_PUBLIC_PRODUCTION_BACKEND_URL           | Production back-end url            | https://api.temchurras.com      |
 
 ## 💻 Getting started
 
