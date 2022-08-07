@@ -72,13 +72,33 @@ const Contribute: React.FC = () => {
         </div>
       </div>
       <div className="card-content">
-        <input
-          id="churras-link"
-          type="text"
-          value={data.pix_key}
-          disabled
-          style={{ marginBottom: 24 }}
-        />
+        <div className="link-and-copy-link">
+          <input
+            id="churras-link"
+            type="text"
+            value={data.pix_key}
+            disabled
+            style={{ marginBottom: 24 }}
+          />
+          <button type="button" className="copy-link" onClick={copyToClipboard}>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M16 12.9V17.1C16 20.6 14.6 22 11.1 22H6.9C3.4 22 2 20.6 2 17.1V12.9C2 9.4 3.4 8 6.9 8H11.1C14.6 8 16 9.4 16 12.9Z"
+                fill="#807D8E"
+              />
+              <path
+                d="M17.1 2H12.9C9.81693 2 8.37099 3.09409 8.06975 5.73901C8.00673 6.29235 8.465 6.75 9.02191 6.75H11.1C15.3 6.75 17.25 8.7 17.25 12.9V14.9781C17.25 15.535 17.7077 15.9933 18.261 15.9303C20.9059 15.629 22 14.1831 22 11.1V6.9C22 3.4 20.6 2 17.1 2Z"
+                fill="#807D8E"
+              />
+            </svg>
+          </button>
+        </div>
         <Link
           href={`https://api.whatsapp.com/send?phone=55${data.contact_number}&text=Segue+aqui+o+comprovante+da+${data.name}.+Meu+nome+%C3%A9%3A+${user_name}`}
           rel="noopener noreferrer"

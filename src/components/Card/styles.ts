@@ -151,6 +151,21 @@ export const Card = styled(motion.div)`
       color: red;
     }
 
+    .link-and-copy-link {
+      display: flex;
+
+      column-gap: 16px;
+
+      button {
+        flex-shrink: 0;
+        width: 56px;
+        height: 56px;
+        background: #fafafa;
+        border: 1px solid #e6e6e6;
+        border-radius: 4px;
+      }
+    }
+
     #churras-link {
       width: 100%;
       height: 56px;
