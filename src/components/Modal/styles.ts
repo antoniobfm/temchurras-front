@@ -17,13 +17,15 @@ export const ModalContainer = styled(motion.div)`
   justify-content: center;
   align-items: center;
 
-  padding: 40px 0;
+  padding: 40px 40px;
 
   ::-webkit-scrollbar {
     display: none;
   }
 
   #settings {
+    width: 100%;
+    max-width: 414px;
     height: auto;
 
     display: flex;
