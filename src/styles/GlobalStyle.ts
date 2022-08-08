@@ -92,23 +92,18 @@ export default createGlobalStyle`
 
   .actions {
     width: 100%;
-    max-width: 768px;
+    max-width: calc(768px + 48px);
 
     margin: auto;
+    margin-top: -72px;
 
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
 
-    margin-top: -72px;
-
     .go-back {
       height: 32px;
       padding: 0 24px;
-
-      @media (min-width: 768px) {
-        padding: 0;
-      }
 
       display: flex;
       align-items: center;

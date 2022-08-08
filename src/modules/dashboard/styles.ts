@@ -18,7 +18,10 @@ export const Container = styled.div`
 
   .header {
     margin: auto;
-    max-width: 768px;
+
+    @media (min-width: 768px) {
+      padding: 0px 24px;
+    }
 
     .header-title {
       display: flex;
@@ -27,7 +30,9 @@ export const Container = styled.div`
       padding: 40px 24px 24px;
 
       @media (min-width: 768px) {
-        padding: 40px 0;
+        margin: auto;
+        max-width: 768px;
+        padding: 40px 0 24px;
       }
 
       background-image: url() ('/assets/background.png');
@@ -89,7 +94,6 @@ export const Container = styled.div`
 
         column-gap: 24px;
 
-        padding-bottom: 4px;
         margin-bottom: -4px;
 
         ::-webkit-scrollbar {
