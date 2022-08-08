@@ -49,9 +49,11 @@ const AppProvider: React.FC<IAppProvider> = ({ children }: IAppProvider) => {
 
   return (
     <>
-      {first_load_done && <RouteBeforeProvider>{children}</RouteBeforeProvider>}
+      {!first_load_done && (
+        <RouteBeforeProvider>{children}</RouteBeforeProvider>
+      )}
       <AnimatePresence initial={false}>
-        {!first_load_done && (
+        {first_load_done && (
           <motion.div
             key="load"
             className="loading-screen"

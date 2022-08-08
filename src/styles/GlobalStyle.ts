@@ -144,7 +144,7 @@ export default createGlobalStyle`
     background-blend-mode: luminosity;
 
     @media (min-width: 768px) {
-      background-size: contain;
+      background-size: auto;
     }
 
     display: flex;
@@ -158,7 +158,8 @@ export default createGlobalStyle`
       width: 30vw;
 
       @media (min-width: 768px) {
-        width: 10vw;
+        width: 20vw;
+        max-width: 214px;
       }
 
       border: 3px solid #000000;
@@ -166,10 +167,6 @@ export default createGlobalStyle`
       border-radius: 16px;
 
       position: relative;
-
-      /* animation-name: example;
-      animation-duration: 10s;
-      animation-iteration-count: infinite; */
     }
   }
 `;
