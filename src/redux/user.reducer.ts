@@ -58,6 +58,7 @@ interface IUser {
       amount_contributed?: number;
     }[];
   }[];
+  first_load_done: boolean;
   pending: boolean;
   error: boolean;
   messages: Array<{ title: string; type: 'error' | 'success' }>;
@@ -73,6 +74,7 @@ const initialState: IUser = {
   churras: [],
   calendar: [],
   organizing: [],
+  first_load_done: false,
   pending: false,
   error: false,
   messages: [],
@@ -89,6 +91,7 @@ export const userSlice = createSlice({
       state.error = false;
     }),
       builder.addCase(initialLoad.fulfilled, (state, action) => {
+        state.first_load_done = true;
         state.pending = false;
 
         state.userInfo.id = action.payload.id;
@@ -114,6 +117,8 @@ export const userSlice = createSlice({
       builder.addCase(initialLoad.rejected, (state, action) => {
         state.pending = false;
         state.error = true;
+
+        state.first_load_done = true;
       }),
       // Send Verification Code
       builder.addCase(sendVerificationCode.pending, (state, action) => {

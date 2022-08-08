@@ -128,4 +128,48 @@ export default createGlobalStyle`
       }
     }
   }
+
+  .loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+
+    background: ${props => props.theme.colors.primary};
+    background-image: url("/assets/background-fadeless.png");
+    background-size: 100%;
+    background-repeat: repeat;
+    background-blend-mode: luminosity;
+
+    @media (min-width: 768px) {
+      background-size: contain;
+    }
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    row-gap: 24px;
+
+    img {
+      width: 30vw;
+
+      @media (min-width: 768px) {
+        width: 10vw;
+      }
+
+      border: 3px solid #000000;
+      box-shadow: 0px 60px 77px #706433;
+      border-radius: 16px;
+
+      position: relative;
+
+      /* animation-name: example;
+      animation-duration: 10s;
+      animation-iteration-count: infinite; */
+    }
+  }
 `;
