@@ -8,8 +8,12 @@ import theme from '@/styles/theme';
 import { ThemeProvider } from 'styled-components';
 import { ToastProvider } from '@/hooks/toast';
 import AppProvider from '@/hooks';
+import { useRouter } from 'next/router';
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+  const url = `https://temchurras.com/${router.route}`;
+
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
@@ -23,7 +27,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <GlobalStyle />
         <AppProvider>
           <ToastProvider>
-            <Component {...pageProps} />
+            <Component {...pageProps} canonical={url} key={url} />
           </ToastProvider>
         </AppProvider>
       </ThemeProvider>

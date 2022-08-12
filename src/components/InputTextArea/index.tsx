@@ -1,7 +1,7 @@
 /* eslint-disable react/require-default-props */
 /* eslint-disable react/jsx-props-no-spreading */
 
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 
 import { Container } from './styles';
 

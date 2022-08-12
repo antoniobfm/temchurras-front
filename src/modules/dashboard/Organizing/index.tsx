@@ -64,7 +64,13 @@ const Organizing: React.FC = () => {
   };
 
   return (
-    <div className="organizing">
+    <motion.div
+      className="organizing"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ delay: 0.5 }}
+    >
       <h4>ORGANIZANDO</h4>
       <div className="organizing-list">
         {organizing.map(churras => (
@@ -111,7 +117,7 @@ const Organizing: React.FC = () => {
           />
         </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

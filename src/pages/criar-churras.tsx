@@ -9,6 +9,7 @@ import React, { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/redux/store';
 import CreateChurrasForm from '@/modules/criarChurras/Form';
+import { motion } from 'framer-motion';
 
 const CriarChurras: React.FC = () => {
   const router = useRouter();
@@ -32,9 +33,25 @@ const CriarChurras: React.FC = () => {
         <title>Criar Churras | TemChurras</title>
       </Head>
       <Container>
-        <img src="/assets/background.png" alt="background" />
+        <motion.div
+          className="header"
+          layoutId="header"
+          transition={{ layout: { ease: 'easeInOut', duration: 0.5 } }}
+        >
+          <motion.div
+            layoutId="background"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+          />
+        </motion.div>
         <div className="actions">
-          <div className="go-back" onClick={() => router.push('/')}>
+          <motion.div
+            className="go-back"
+            onClick={() => router.back()}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 1 }}
+          >
             <svg
               width="20"
               height="20"
@@ -49,11 +66,18 @@ const CriarChurras: React.FC = () => {
             </svg>
 
             <span>VOLTAR</span>
-          </div>
+          </motion.div>
         </div>
-        <div className="dashboard">
+        <motion.div
+          className="dashboard"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ delay: 0.5, duration: 0.5 }}
+          layoutId="dashboard"
+        >
           <CreateChurrasForm />
-        </div>
+        </motion.div>
       </Container>
     </>
   );

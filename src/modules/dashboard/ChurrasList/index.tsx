@@ -42,7 +42,12 @@ const ChurrasList: React.FC = () => {
   };
 
   return (
-    <Container>
+    <Container
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ delay: 0.5 }}
+    >
       <div className="churras-list">
         <h1 style={{ paddingBottom: 16 }}>Seu calendário</h1>
         <div className="churras-grid">

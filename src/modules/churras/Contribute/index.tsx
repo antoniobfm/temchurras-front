@@ -6,7 +6,7 @@
 
 import { Card } from '@/components/Card/styles';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/redux/store';
 import Button from '@/components/Button';
@@ -18,16 +18,16 @@ const Contribute: React.FC = () => {
 
   const { addToast } = useToast();
 
-  const churras_slug = router.query.churras_slug as string;
+  const churras_slug = useRef(router.query.churras_slug as string);
 
   const user_name = useSelector((state: RootState) => state.user.userInfo.name);
 
   const data = useSelector((state: RootState) => {
     const churrasData = state.user.churras.filter(
-      churras => churras.id === churras_slug,
+      churras => churras.id === churras_slug.current,
     )[0];
     const calendar = state.user.calendar.filter(
-      churras => churras.id === churras_slug,
+      churras => churras.id === churras_slug.current,
     )[0];
     return { ...churrasData, ...calendar };
   });

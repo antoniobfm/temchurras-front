@@ -11,9 +11,12 @@ import { useSelector } from 'react-redux';
 import { RootState } from '@/redux/store';
 import ShareChurras from '@/modules/churras/pages/admin/ShareChurras';
 import Loading from '@/components/Loading';
+import { motion } from 'framer-motion';
+import { useRouteBefore } from '@/hooks/routeBefore';
 
 const ChurrasAdmin: React.FC = () => {
   const router = useRouter();
+  const { routeBefore } = useRouteBefore();
 
   const churras_slug = router.query.churras_slug as string;
 
@@ -34,7 +37,13 @@ const ChurrasAdmin: React.FC = () => {
           <title>{churras_slug} | Painel de Administração | TemChurras</title>
         </Head>
         <Container>
-          <img src="/assets/background.png" alt="background" />
+          <motion.div className="header" layoutId="header">
+            <motion.div
+              layoutId="background"
+              initial={{ opacity: routeBefore === '/c/[churras_slug]' ? 1 : 0 }}
+              animate={{ opacity: 1 }}
+            />
+          </motion.div>
           <div className="actions">
             <div className="go-back" onClick={() => router.back()}>
               <svg
@@ -53,11 +62,18 @@ const ChurrasAdmin: React.FC = () => {
               <span>VOLTAR</span>
             </div>
           </div>
-          <div className="dashboard">
+          <motion.div
+            className="dashboard"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              duration: 0.5,
+            }}
+          >
             <Summary />
             <PresenceList />
             <ShareChurras />
-          </div>
+          </motion.div>
         </Container>
       </>
     );

@@ -1,18 +1,28 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.main`
   min-height: 100vh;
-  background-color: #ffd836;
+  background-color: white;
 
-  img {
+  .header {
+    background: ${props => props.theme.colors.primary};
     height: 122px;
-    object-fit: cover;
     width: 100%;
+    overflow: hidden;
+
+    > div {
+      background-image: url('/assets/background.png');
+      background-size: contain;
+      height: 200%;
+      width: 100%;
+
+      @media (min-width: 768px) {
+        background-size: fill;
+      }
+    }
   }
 
   .dashboard {
-    background: white;
-
     width: 100%;
     min-height: 100vh;
 

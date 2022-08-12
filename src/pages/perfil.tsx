@@ -1,22 +1,15 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 
-import Button from '@/components/Button';
-import { Card } from '@/components/Card/styles';
-import { TextInput } from '@/components/TextInput';
 import { Container } from '@/modules/profile/styles';
 import { AppDispatch, RootState } from '@/redux/store';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React, { useCallback, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useForm } from 'react-hook-form';
-import { updateName } from '@/redux/user.actions';
 import { signOut } from '@/redux/authentication.actions';
-
-interface IFormData {
-  name: string;
-}
+import { motion } from 'framer-motion';
+import EditProfile from '@/modules/profile/EditProfile';
 
 const Profile: React.FC = () => {
   const router = useRouter();
@@ -31,19 +24,6 @@ const Profile: React.FC = () => {
     }
   }, [user.name, router]);
 
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-  } = useForm<IFormData>();
-
-  const handleUpdateName = useCallback(
-    (data: IFormData) => {
-      dispatch(updateName(data.name));
-    },
-    [dispatch],
-  );
-
   const handleSignOut = useCallback(() => {
     dispatch(signOut());
   }, [dispatch]);
@@ -54,9 +34,25 @@ const Profile: React.FC = () => {
         <title>Meu Perfil | TemChurras</title>
       </Head>
       <Container>
-        <img src="/assets/background.png" alt="background" />
+        <motion.div
+          className="header"
+          layoutId="header"
+          transition={{ layout: { ease: 'easeInOut', duration: 0.5 } }}
+        >
+          <motion.div
+            layoutId="background"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+          />
+        </motion.div>
         <div className="actions">
-          <div className="go-back" onClick={() => router.back()}>
+          <motion.div
+            className="go-back"
+            onClick={() => router.back()}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 1 }}
+          >
             <svg
               width="20"
               height="20"
@@ -71,43 +67,27 @@ const Profile: React.FC = () => {
             </svg>
 
             <span>VOLTAR</span>
-          </div>
-          <div className="go-back" onClick={handleSignOut}>
+          </motion.div>
+          <motion.div
+            className="go-back"
+            onClick={handleSignOut}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 1 }}
+          >
             <span>SAIR</span>
-          </div>
+          </motion.div>
         </div>
-        <div className="dashboard">
-          <Card>
-            <div className="card-header">
-              <div className="card-header-title">
-                <h1>Editar perfil</h1>
-              </div>
-            </div>
-            <div className="card-content">
-              <h4 style={{ paddingBottom: 16 }}>Seu nome</h4>
-              <form onSubmit={handleSubmit(handleUpdateName)}>
-                <TextInput
-                  name="name"
-                  isErrored={!!errors.name}
-                  defaultValue={user.name}
-                  register={{
-                    ...register('name', {
-                      required: true,
-                      pattern: /^[A-Za-z ]+$/i,
-                    }),
-                  }}
-                />
-                {errors?.name?.type === 'required' && (
-                  <p className="error">Campo obrigatório</p>
-                )}
-                {errors?.name?.type === 'pattern' && (
-                  <p className="error">Apenas caracteres alfabéticos</p>
-                )}
-                <Button style={{ marginTop: 24 }}>SALVAR</Button>
-              </form>
-            </div>
-          </Card>
-        </div>
+        <motion.div
+          className="dashboard"
+          layoutId="dashboard"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ delay: 0.5 }}
+        >
+          <EditProfile />
+        </motion.div>
       </Container>
     </>
   );

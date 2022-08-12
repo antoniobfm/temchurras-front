@@ -23,7 +23,7 @@ const RouteBeforeProvider: React.FC<IRouteBeforeProvider> = ({
 
   useEffect(() => {
     const handleStart = (url: string[]) => {
-      if (url[1] !== router.pathname[1]) {
+      if (url[1] !== router.pathname) {
         setRouteBefore(router.pathname);
       }
     };

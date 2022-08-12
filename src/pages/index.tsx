@@ -11,6 +11,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { motion } from 'framer-motion';
 
 const Home: NextPage = () => {
   const router = useRouter();
@@ -29,8 +30,13 @@ const Home: NextPage = () => {
         <title>TemChurras</title>
       </Head>
       <Container>
-        <div className="header">
-          <div className="header-title">
+        <motion.div className="header" layoutId="header">
+          <motion.div
+            className="header-title"
+            transition={{ delay: 0.5 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+          >
             <h1 style={{ fontWeight: 400 }}>Olá, {user.name}</h1>
             <button type="button" onClick={() => router.push('/perfil')}>
               <svg
@@ -46,10 +52,10 @@ const Home: NextPage = () => {
                 />
               </svg>
             </button>
-          </div>
+          </motion.div>
 
           <Organizing />
-        </div>
+        </motion.div>
         <ChurrasList />
       </Container>
     </>

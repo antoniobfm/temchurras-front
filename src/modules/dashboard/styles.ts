@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.main`
   margin: auto;
   min-height: 100vh;
-  background-color: #ffd836;
+  background-color: white;
 
   // media query desktop
   @media (min-width: 768px) {
@@ -18,9 +18,11 @@ export const Container = styled.div`
 
   .header {
     margin: auto;
+    background-color: ${props => props.theme.colors.primary};
+    padding-bottom: 16px;
 
     @media (min-width: 768px) {
-      padding: 0px 24px;
+      padding: 0px 24px 16px;
     }
 
     .header-title {
@@ -34,8 +36,6 @@ export const Container = styled.div`
         max-width: 768px;
         padding: 40px 0 24px;
       }
-
-      background-image: url() ('/assets/background.png');
     }
 
     button {

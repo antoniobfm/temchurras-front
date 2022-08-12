@@ -5,7 +5,7 @@
 import { Card } from '@/components/Card/styles';
 import ConfirmPresenceButton from '@/components/ConfirmPresenceButton';
 import { useRouter } from 'next/router';
-import React, { useCallback, useEffect, useLayoutEffect } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import { parseISO, format } from 'date-fns';
 import { useSelector, useDispatch } from 'react-redux';
 import { AppDispatch, RootState } from '@/redux/store';
@@ -16,23 +16,24 @@ const Summary: React.FC = () => {
   const router = useRouter();
 
   const dispatch = useDispatch<AppDispatch>();
-  const churras_slug = router.query.churras_slug as string;
+  const churras_slug = useRef(router.query.churras_slug as string);
 
   const data = useSelector((state: RootState) => {
     const churrasData = state.user.churras.filter(
-      churras => churras.id === churras_slug,
+      churras => churras.id === churras_slug.current,
     )[0];
     const organizing = state.user.organizing.filter(
-      churras => churras.id === churras_slug,
+      churras => churras.id === churras_slug.current,
     )[0];
     const calendar = state.user.calendar.filter(
-      churras => churras.id === churras_slug,
+      churras => churras.id === churras_slug.current,
     )[0];
     const presence_status: 'confirmed' | 'pending' | 'unconfirmed' = calendar
       ? calendar.amount_contributed
         ? 'confirmed'
         : 'pending'
       : 'unconfirmed';
+
     return { ...churrasData, ...organizing, presence_status };
   });
 
@@ -59,7 +60,7 @@ const Summary: React.FC = () => {
     <Card>
       <div className="card-header">
         <div className="card-header-title">
-          <h2>{format(parseISO(`${data.date}`), 'dd/MM')}</h2>
+          <h2>{data.date && format(parseISO(`${data.date}`), 'dd/MM')}</h2>
           <h1 style={{ paddingTop: 8 }}>{data.name}</h1>
           <div className="card-header-details">
             <div className="card-header-details-item">

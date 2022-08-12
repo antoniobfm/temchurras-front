@@ -1,6 +1,12 @@
 import { AppDispatch, RootState } from '@/redux/store';
 import { initialLoad } from '@/redux/user.actions';
-import { AnimatePresence, motion, Variants } from 'framer-motion';
+import {
+  AnimatePresence,
+  AnimateSharedLayout,
+  motion,
+  Variants,
+} from 'framer-motion';
+import Head from 'next/head';
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RouteBeforeProvider } from './routeBefore';
@@ -49,26 +55,41 @@ const AppProvider: React.FC<IAppProvider> = ({ children }: IAppProvider) => {
 
   return (
     <>
-      {first_load_done && <RouteBeforeProvider>{children}</RouteBeforeProvider>}
+      {first_load_done && (
+        <RouteBeforeProvider>
+          <AnimatePresence
+            exitBeforeEnter
+            initial={false}
+            onExitComplete={() => window.scrollTo(0, 0)}
+          >
+            {children}
+          </AnimatePresence>
+        </RouteBeforeProvider>
+      )}
       <AnimatePresence initial={false}>
         {!first_load_done && (
-          <motion.div
-            key="load"
-            className="loading-screen"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <motion.img
-              src="/icons/apple-icon.png"
-              alt="logo"
-              variants={variants}
-              initial="top"
-              animate="bottom"
-              exit="exiting"
-            />
-          </motion.div>
+          <>
+            <Head>
+              <title>TemChurras</title>
+            </Head>
+            <motion.div
+              key="load"
+              className="loading-screen"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <motion.img
+                src="/icons/apple-icon.png"
+                alt="logo"
+                variants={variants}
+                initial="top"
+                animate="bottom"
+                exit="exiting"
+              />
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </>
