@@ -68,7 +68,7 @@ const Churras: React.FC = () => {
         <div className="actions">
           <motion.div
             className="go-back"
-            onClick={() => router.back()}
+            onClick={() => router.push('/')}
             initial={{
               opacity: routeBefore === '/c/[churras_slug]/admin' ? 1 : 0,
             }}
