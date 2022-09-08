@@ -20,6 +20,7 @@ export default createGlobalStyle`
     background: ${props => props.theme.colors.background};
     color: ${props => props.theme.colors.text};
     font-family: futura-pt, Arial, Helvetica, sans-serif;
+    font-style: normal;
 
 		::-webkit-scrollbar {
 			display: none;
@@ -28,38 +29,35 @@ export default createGlobalStyle`
 
   :root {
 		font-size: 14px;
+
+    --primary: #ffd836;
+    --text: #2F2E2C;
+    --text-medium: #807D8E;
   }
 
   h1 {
-    letter-spacing: -0.02em;
+    font-weight: 700;
     font-size: 1.777rem;
-		font-family: 'futura-pt';
+    line-height: 32px;
   }
 
   h2 {
+    font-weight: 700;
     font-size: 1.333rem;
-		font-family: 'futura-pt';
+    line-height: 24px;
   }
 
   h3 {
-    font-size: 1.414rem;
-		font-family: 'futura-pt';
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 18px;
   }
 
   p {
+    font-weight: 400;
     font-size: 1rem;
-    line-height: 17px;
-		font-family: 'futura-pt';
-  }
-
-  h4 {
-    font-size: 1rem;
-		font-family: 'futura-pt';
-  }
-
-  h5 {
-    font-size: 0.75rem;
-		font-family: 'futura-pt';
+    line-height: 18px;
+    color: var(--text-medium);
   }
 
   a {

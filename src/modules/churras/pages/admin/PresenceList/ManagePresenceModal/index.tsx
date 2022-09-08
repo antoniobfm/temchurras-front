@@ -106,13 +106,13 @@ const ManagePresenceModal: React.FC<IProps> = ({
             isSelected={selectedOption === 'with-drink'}
             onClick={() => setSelectedOption('with-drink')}
           >
-            R${data.suggested_contribution_with_drinks} - Com bebida
+            <p>R${data.suggested_contribution_with_drinks} - Com bebida</p>
           </Option>
           <Option
             isSelected={selectedOption === 'without-drink'}
             onClick={() => setSelectedOption('without-drink')}
           >
-            R${data.suggested_contribution_without_drinks} - Sem bebida
+            <p>R${data.suggested_contribution_without_drinks} - Sem bebida</p>
           </Option>
           <AnotherOption
             isSelected={selectedOption === 'another-value'}

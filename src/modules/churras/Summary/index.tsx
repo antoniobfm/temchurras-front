@@ -11,6 +11,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { AppDispatch, RootState } from '@/redux/store';
 import { confirmPresence } from '@/redux/churras.actions';
 import { motion } from 'framer-motion';
+import InformationSnippet from '@/components/InformationSnippet';
 
 const Summary: React.FC = () => {
   const router = useRouter();
@@ -62,50 +63,10 @@ const Summary: React.FC = () => {
         <div className="card-header-title">
           <h2>{data.date && format(parseISO(`${data.date}`), 'dd/MM')}</h2>
           <h1 style={{ paddingTop: 8 }}>{data.name}</h1>
-          <div className="card-header-details">
-            <div className="card-header-details-item">
-              <svg
-                width="17"
-                height="17"
-                viewBox="0 0 17 17"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M8.50001 8.50001C10.456 8.50001 12.0417 6.91435 12.0417 4.95834C12.0417 3.00233 10.456 1.41667 8.50001 1.41667C6.544 1.41667 4.95834 3.00233 4.95834 4.95834C4.95834 6.91435 6.544 8.50001 8.50001 8.50001Z"
-                  fill="#FFD836"
-                />
-                <path
-                  d="M8.5 10.2708C4.95125 10.2708 2.06125 12.6508 2.06125 15.5833C2.06125 15.7817 2.21708 15.9375 2.41542 15.9375H14.5846C14.7829 15.9375 14.9387 15.7817 14.9387 15.5833C14.9387 12.6508 12.0487 10.2708 8.5 10.2708Z"
-                  fill="#FFD836"
-                />
-              </svg>
-              <span>{data.total_participants}</span>
-            </div>
-            <div className="card-header-details-item">
-              <svg
-                width="17"
-                height="17"
-                viewBox="0 0 17 17"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M9.03125 11.2767H9.49167C9.95208 11.2767 10.3346 10.8658 10.3346 10.37C10.3346 9.75375 10.115 9.63334 9.75375 9.50584L9.03833 9.25792V11.2767H9.03125Z"
-                  fill="#FFD836"
-                />
-                <path
-                  d="M8.47876 1.34584C4.56876 1.36 1.40251 4.54042 1.41667 8.45042C1.43084 12.3604 4.61126 15.5267 8.52126 15.5125C12.4313 15.4983 15.5975 12.3179 15.5833 8.40792C15.5692 4.49792 12.3888 1.33875 8.47876 1.34584ZM10.1008 8.5C10.6533 8.69125 11.3971 9.10209 11.3971 10.37C11.3971 11.4608 10.54 12.3392 9.49167 12.3392H9.03126V12.75C9.03126 13.0404 8.79042 13.2813 8.50001 13.2813C8.20959 13.2813 7.96876 13.0404 7.96876 12.75V12.3392H7.71376C6.55209 12.3392 5.61001 11.3617 5.61001 10.1575C5.61001 9.86709 5.85084 9.62625 6.14126 9.62625C6.43167 9.62625 6.67251 9.86709 6.67251 10.1575C6.67251 10.7738 7.14001 11.2767 7.71376 11.2767H7.96876V8.8825L6.89917 8.5C6.34667 8.30875 5.60292 7.89792 5.60292 6.63C5.60292 5.53917 6.46001 4.66084 7.50834 4.66084H7.96876V4.25C7.96876 3.95959 8.20959 3.71875 8.50001 3.71875C8.79042 3.71875 9.03126 3.95959 9.03126 4.25V4.66084H9.28626C10.4479 4.66084 11.39 5.63834 11.39 6.8425C11.39 7.13292 11.1492 7.37375 10.8588 7.37375C10.5683 7.37375 10.3275 7.13292 10.3275 6.8425C10.3275 6.22625 9.86001 5.72334 9.28626 5.72334H9.03126V8.1175L10.1008 8.5Z"
-                  fill="#FFD836"
-                />
-                <path
-                  d="M6.67249 6.63708C6.67249 7.25333 6.89207 7.37374 7.25332 7.50124L7.96874 7.74916V5.72333H7.50832C7.0479 5.72333 6.67249 6.13416 6.67249 6.63708Z"
-                  fill="#FFD836"
-                />
-              </svg>
-              <span>R${data.total_revenue}</span>
-            </div>
-          </div>
+          <InformationSnippet
+            total_participants={data.total_participants}
+            total_revenue={data.total_revenue}
+          />
         </div>
         <div className="card-header-actions">
           {is_organizing && (

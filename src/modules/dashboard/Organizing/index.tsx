@@ -5,8 +5,9 @@ import { RootState } from '@/redux/store';
 import { useRouter } from 'next/router';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { format, parseISO } from 'date-fns';
 import { motion } from 'framer-motion';
+import MiniChurrasCard from './MiniChurrasCard';
+import { Container } from './styles';
 
 const Organizing: React.FC = () => {
   const router = useRouter();
@@ -48,23 +49,8 @@ const Organizing: React.FC = () => {
     },
   };
 
-  const animation = {
-    rest: {
-      scale: 1,
-    },
-    hovering: {
-      scale: 0.98,
-      opacity: 0.7,
-      cursor: 'pointer',
-    },
-    tapping: {
-      scale: 0.9,
-      opacity: 0.3,
-    },
-  };
-
   return (
-    <motion.div
+    <Container
       className="organizing"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -74,17 +60,12 @@ const Organizing: React.FC = () => {
       <h4>ORGANIZANDO</h4>
       <div className="organizing-list">
         {organizing.map(churras => (
-          <motion.div
-            whileTap="tapping"
-            whileHover="hovering"
-            variants={animation}
-            className="organizing-list-item"
-            onClick={() => router.push(`/c/${churras.id}`)}
-            key={`${churras.id}-organizing`}
-          >
-            <h4>{format(parseISO(`${churras.date}`), 'dd/MM')}</h4>
-            <h2>{churras.name}</h2>
-          </motion.div>
+          <MiniChurrasCard
+            key={churras.id}
+            id={churras.id}
+            name={churras.name}
+            date={churras.date}
+          />
         ))}
         <motion.div
           className="organizing-list-add"
@@ -117,7 +98,7 @@ const Organizing: React.FC = () => {
           />
         </motion.div>
       </div>
-    </motion.div>
+    </Container>
   );
 };
 

@@ -80,24 +80,6 @@ export const ModalContent = styled.div`
     opacity: 0.25;
   }
 
-  h1 {
-    font-family: futura-pt;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 27px;
-    line-height: 111.53%;
-    padding-bottom: 24px;
-    /* or 30px */
-
-    letter-spacing: -0.02em;
-
-    /* Purple Primary Text */
-
-    color: #e4e3e8;
-
-    text-shadow: 0px 0px 77px #ffffff;
-  }
-
   .divider {
     margin: 40px 16px;
     height: 2px;

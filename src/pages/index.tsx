@@ -38,7 +38,11 @@ const Home: NextPage = () => {
             animate={{ opacity: 1 }}
           >
             <h1 style={{ fontWeight: 400 }}>Olá, {user.name}</h1>
-            <button type="button" onClick={() => router.push('/perfil')}>
+            <button
+              className="profile"
+              type="button"
+              onClick={() => router.push('/perfil')}
+            >
               <svg
                 width="32"
                 height="32"

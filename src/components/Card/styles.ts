@@ -57,17 +57,6 @@ export const Card = styled(motion.div)`
           justify-content: flex-start;
           flex-direction: row;
           column-gap: 8px;
-
-          span {
-            font-family: 'futura-pt';
-            font-style: normal;
-            font-weight: 500;
-            font-size: 14px;
-            line-height: 17px;
-            /* identical to box height */
-
-            color: #000000;
-          }
         }
       }
     }
@@ -80,38 +69,6 @@ export const Card = styled(motion.div)`
           cursor: pointer;
         }
       }
-    }
-  }
-
-  .informations {
-    padding-top: 40px;
-
-    display: flex;
-
-    column-gap: 16px;
-
-    span {
-      font-style: normal;
-      font-weight: 500;
-      font-size: 14px;
-      line-height: 17px;
-      /* identical to box height */
-
-      color: #000000;
-    }
-
-    .lotation {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      column-gap: 8px;
-    }
-
-    .revenue {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      column-gap: 8px;
     }
   }
 

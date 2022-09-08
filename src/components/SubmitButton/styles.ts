@@ -19,7 +19,7 @@ export const Container = styled.button`
   line-height: 17px;
   /* identical to box height */
 
-  color: #ffd836;
+  color: var(--primary);
 
   transition: 0.3s all;
 

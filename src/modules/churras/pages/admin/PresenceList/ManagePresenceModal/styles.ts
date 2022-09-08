@@ -7,16 +7,6 @@ export const Container = styled.div`
   border-radius: 4px;
   padding: 24px 16px;
 
-  h1 {
-    font-family: 'futura-pt';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 29px;
-
-    color: rgba(0, 0, 0, 0.75);
-  }
-
   h2 {
     font-family: 'futura-pt';
     font-style: normal;
@@ -87,13 +77,9 @@ export const Option = styled.div<{ isSelected: boolean }>`
   border: 2px solid ${props => (props.isSelected ? '#ffd836' : '#e6e6e6')};
   border-radius: 4px;
 
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
-  /* identical to box height */
-
-  color: ${props => (props.isSelected ? '#ffd836' : 'rgba(0, 0, 0, 0.75)')};
+  p {
+    color: ${props => (props.isSelected ? '#ffd836' : 'rgba(0, 0, 0, 0.75)')};
+  }
 
   transition: 0.3s all;
 

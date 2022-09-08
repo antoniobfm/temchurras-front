@@ -58,7 +58,7 @@ export default class MyDocument extends Document {
             sizes="32x32"
           />
           <link rel="apple-touch-icon" href="/icons/apple-icon.png" />
-          <meta name="theme-color" content="#FFD836" />
+          <meta name="theme-color" content="#ffd836" />
           <meta name="mobile-web-app-capable" content="yes" />
           {/* Tap highlighting */}
           <meta name="msapplication-tap-highlight" content="no" />

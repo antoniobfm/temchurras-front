@@ -52,13 +52,13 @@ const PresenceList: React.FC = () => {
                 >
                   <div>
                     <div className="check" />
-                    <h1>{item.name}</h1>
+                    <h3>{item.name}</h3>
                   </div>
-                  <h2>
+                  <h3>
                     {item.amount_contributed
                       ? `R$${item.amount_contributed}`
                       : '-'}
-                  </h2>
+                  </h3>
                 </PresenceListItem>
               ))}
           </PresenceListWrapper>

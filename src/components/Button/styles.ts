@@ -7,7 +7,7 @@ export const Container = styled.button`
   border: none;
   outline: none;
 
-  background: #ffd836;
+  background: var(--primary);
   border-radius: 4px;
 
   font-family: 'futura-pt';
