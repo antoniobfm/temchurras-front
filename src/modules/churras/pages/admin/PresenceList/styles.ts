@@ -31,8 +31,7 @@ export const PresenceListItem = styled.div<{ confirmed: boolean }>`
       width: 8px;
       height: 8px;
       border-radius: 4px;
-      border: 1px solid
-        ${props => (props.confirmed ? '#ffd836' : '#ccc')};
+      border: 1px solid ${props => (props.confirmed ? '#ffd836' : '#ccc')};
       background: ${props => (props.confirmed ? '#ffd836' : '#fff')};
     }
   }
