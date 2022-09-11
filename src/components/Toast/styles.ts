@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 
 export const Wrapper = styled.div`
   position: fixed;
-  right: 0;
   z-index: 14;
   top: 0;
+  width: 100vw;
 `;
 
 interface ContainerProps {
@@ -14,8 +14,9 @@ interface ContainerProps {
 
 export const Container = styled(motion.div)<ContainerProps>`
   width: calc(100vw - 48px);
-  margin-right: 24px;
-  margin-top: 2vh;
+  max-width: 768px;
+
+  margin: 2vh auto 0;
 
   background: rgba(249, 244, 224, 0.88);
   outline: 4px solid rgba(125, 125, 125, 0.15);
