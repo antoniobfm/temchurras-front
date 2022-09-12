@@ -37,6 +37,7 @@ const VerificationCodeInput: React.FC = () => {
   return (
     <Container>
       <SingleDigitInput
+        data-test="code-input-1"
         type="number"
         className="code-input"
         pattern="[0-9]*"

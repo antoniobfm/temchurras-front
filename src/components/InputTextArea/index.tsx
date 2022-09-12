@@ -15,13 +15,20 @@ const InputTextArea: React.FC<IInputTextAreaProps> = ({
   id,
   isErrored,
   register,
+  ...rest
 }: IInputTextAreaProps) => {
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
   return (
     <Container isErrored={isErrored}>
       <div className="textarea">
-        <textarea id={id} name="description" ref={inputRef} {...register} />
+        <textarea
+          id={id}
+          name="description"
+          ref={inputRef}
+          {...register}
+          {...rest}
+        />
       </div>
     </Container>
   );

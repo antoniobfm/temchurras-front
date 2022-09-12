@@ -31,6 +31,7 @@ const Header: React.FC = () => {
           className="profile"
           type="button"
           onClick={() => router.push('/perfil')}
+          data-test="profile-button"
         >
           <svg
             width="32"

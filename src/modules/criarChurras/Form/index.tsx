@@ -58,6 +58,7 @@ const CreateChurrasForm: React.FC = () => {
                 pattern: /^[A-Za-z ]+$/i,
               }),
             }}
+            data-test="name-input"
           />
           {errors?.name?.type === 'required' && (
             <p className="error">Campo obrigatório</p>
@@ -78,6 +79,7 @@ const CreateChurrasForm: React.FC = () => {
                 required: true,
               }),
             }}
+            data-test="date-input"
           />
           {errors?.date?.type === 'required' && (
             <p className="error">O churras tem que ter data</p>
@@ -88,6 +90,7 @@ const CreateChurrasForm: React.FC = () => {
             id="description"
             isErrored={!!errors.description}
             register={{ ...register('description', { required: true }) }}
+            data-test="description-input"
           />
           {errors?.description?.type === 'required' && (
             <p className="error">A descrição é obrigatória</p>
@@ -104,6 +107,7 @@ const CreateChurrasForm: React.FC = () => {
                 pattern: /^[0-9.]+$/i,
               }),
             }}
+            data-test="with-drinks-input"
           />
           {errors?.suggested_contribution_with_drinks?.type === 'required' && (
             <p className="error">O valor com drinks inclusos é obrigatório</p>
@@ -119,6 +123,7 @@ const CreateChurrasForm: React.FC = () => {
                 pattern: /^[0-9.]+$/i,
               }),
             }}
+            data-test="without-drinks-input"
           />
           {errors?.suggested_contribution_without_drinks?.type ===
             'required' && (
@@ -137,6 +142,7 @@ const CreateChurrasForm: React.FC = () => {
                 maxLength: 30,
               }),
             }}
+            data-test="pix-type-input"
           />
           {errors?.pix_type?.type === 'required' && (
             <p className="error">Campo obrigatório</p>
@@ -156,6 +162,7 @@ const CreateChurrasForm: React.FC = () => {
                 maxLength: 30,
               }),
             }}
+            data-test="pix-key-input"
           />
           {errors?.pix_key?.type === 'required' && (
             <p className="error">Campo obrigatório</p>

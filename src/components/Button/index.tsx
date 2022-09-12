@@ -25,6 +25,7 @@ const Button: React.FC<IButtonProps> = ({
       {...rest}
       onClick={handleClick}
       disabled={!!loading}
+      data-test="submit-button"
     >
       {loading ? <Loading /> : children}
     </Container>

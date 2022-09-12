@@ -86,6 +86,7 @@ const Toast: React.FC<ToastProps> = ({ message }) => {
           exitToast(-1);
         }
       }}
+      data-test="toast"
     >
       <div>
         {message.type === 'success' && (

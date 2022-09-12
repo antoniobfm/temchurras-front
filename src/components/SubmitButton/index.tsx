@@ -14,7 +14,7 @@ const SubmitButton: React.FC<ISubmitButtonProps> = ({
   children,
 }: ISubmitButtonProps) => {
   return (
-    <Container type="submit" onClick={handleClick}>
+    <Container type="submit" onClick={handleClick} data-test="submit-button">
       {children}
     </Container>
   );

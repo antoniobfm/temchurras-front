@@ -76,7 +76,10 @@ const Organizing: React.FC = () => {
           initial="rest"
           animate="rest"
         >
-          <div className="organizing-list-add-content">
+          <div
+            className="organizing-list-add-content"
+            data-test="create-churras-button"
+          >
             <svg
               width="24"
               height="24"
