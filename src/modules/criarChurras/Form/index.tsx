@@ -79,7 +79,6 @@ const CreateChurrasForm: React.FC = () => {
                 required: true,
               }),
             }}
-            data-test="date-input"
           />
           {errors?.date?.type === 'required' && (
             <p className="error">O churras tem que ter data</p>

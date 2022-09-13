@@ -32,6 +32,7 @@ const DateInput: React.FC<InputProps> = ({
         type="date"
         onFocus={handleInputFocus}
         ref={inputRef}
+        data-test="date-input"
         {...register}
       />
     </Container>

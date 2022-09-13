@@ -26,7 +26,9 @@ const Header: React.FC = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
       >
-        <h1 style={{ fontWeight: 400 }}>Olá, {user.name}</h1>
+        <h1 style={{ fontWeight: 400 }} data-test="hello-message">
+          Olá, {user.name}
+        </h1>
         <button
           className="profile"
           type="button"

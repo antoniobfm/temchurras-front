@@ -24,10 +24,29 @@ describe('sign up', () => {
     cy.getBySel('toast').click({ multiple: true });
     cy.getBySel('toast').should('not.exist');
   });
+});
 
-  it('should visit profile', () => {
+describe('sign off', () => {
+  it('should be able to sign off', () => {
+    cy.visit('/');
+
+    // Sign In
+    cy.get('#phoneNumber').type('31983448000');
+    cy.get('#phoneNumber').should('have.value', '(31) 98344 - 8000');
+    cy.getBySel('submit-button').click();
+    cy.getBySel('code-input-1').type('00000');
+    cy.getBySel('submit-button').click();
+
+    // Close Toasts
+    cy.getBySel('toast').click({ multiple: true });
+    cy.getBySel('toast').should('not.exist');
+
+    // Visit Profile
     cy.getBySel('profile-button').click();
-    cy.url().should('include', '/perfil');
+
+    // Check
+    cy.getBySel('signout-button').click();
+    cy.url().should('equal', 'http://localhost:3000/login');
   });
 });
 
@@ -86,6 +105,55 @@ describe('create churras', () => {
     cy.getBySel('submit-button').click();
 
     cy.url().should('include', '/c/');
+  });
+});
+
+describe('user profile', () => {
+  it('should be able to go from home to user profile', () => {
+    cy.visit('/');
+
+    // Sign In
+    cy.get('#phoneNumber').type('31983448000');
+    cy.get('#phoneNumber').should('have.value', '(31) 98344 - 8000');
+    cy.getBySel('submit-button').click();
+    cy.getBySel('code-input-1').type('00000');
+    cy.getBySel('submit-button').click();
+
+    // Close Toasts
+    cy.getBySel('toast').click({ multiple: true });
+    cy.getBySel('toast').should('not.exist');
+
+    // Visit Profile
+    cy.getBySel('profile-button').click();
+
+    // Check
+    cy.url().should('include', '/perfil');
+  });
+
+  it('should update user name', () => {
+    cy.visit('/');
+
+    // Sign In
+    cy.get('#phoneNumber').type('31983448000');
+    cy.get('#phoneNumber').should('have.value', '(31) 98344 - 8000');
+    cy.getBySel('submit-button').click();
+    cy.getBySel('code-input-1').type('00000');
+    cy.getBySel('submit-button').click();
+
+    // Close Toasts
+    cy.getBySel('toast').click({ multiple: true });
+    cy.getBySel('toast').should('not.exist');
+
+    // Visit Profile
+    cy.getBySel('profile-button').click();
+
+    // Update name
+    cy.getBySel('name-input').clear().type('Ontonio');
+    cy.getBySel('submit-button').click();
+
+    // Check
+    cy.getBySel('go-back').click();
+    cy.getBySel('hello-message').should('have.text', 'Olá, Ontonio');
   });
 });
 

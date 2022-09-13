@@ -34,6 +34,7 @@ const Header: React.FC = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 1 }}
+          data-test="go-back"
         >
           <svg
             width="20"
@@ -56,6 +57,7 @@ const Header: React.FC = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 1 }}
+          data-test="signout-button"
         >
           <span>SAIR</span>
         </motion.div>

@@ -49,6 +49,7 @@ const EditProfile: React.FC = () => {
                 pattern: /^[A-Za-z ]+$/i,
               }),
             }}
+            data-test="name-input"
           />
           {errors?.name?.type === 'required' && (
             <p className="error">Campo obrigatório</p>
